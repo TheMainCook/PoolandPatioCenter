@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using PoolandPatioCenter.Models;
 namespace PoolandPatioCenter.Controllers
 {
+    [AllowAnonymous]
     public class ProductsController : Controller
     {
         // GET: Products
