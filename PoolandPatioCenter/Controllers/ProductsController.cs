@@ -12,7 +12,7 @@ namespace PoolandPatioCenter.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var product = new Products() { Id = 1, Name = "pool", price = 10 };
+            var product = new Products() { Id = 1, Name = "pool", Price = 10 };
             return View(product);
         }
     }
