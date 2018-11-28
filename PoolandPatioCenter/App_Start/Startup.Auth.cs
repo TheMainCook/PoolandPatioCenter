@@ -54,15 +54,15 @@ namespace PoolandPatioCenter
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+              appId: "2192986561028192",
+              appSecret: "1580897951207f97995c334332e355e8");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "1001466931006-rp4tjcoqusj4ho8a205sdvfputtg9t5a.apps.googleusercontent.com",
+                ClientSecret = "w64O05iszPv7pNRuDV5b1eWh"
+            });
         }
     }
 }

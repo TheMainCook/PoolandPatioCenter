@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PoolandPatioCenter.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PoolandPatioCenter.Controllers
 {
@@ -17,10 +18,12 @@ namespace PoolandPatioCenter.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+       
         public AccountController()
         {
+          
         }
+        
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -155,6 +158,7 @@ namespace PoolandPatioCenter.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                   
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -419,7 +423,7 @@ namespace PoolandPatioCenter.Controllers
                     _signInManager = null;
                 }
             }
-
+            _context.Dispose();
             base.Dispose(disposing);
         }
 
