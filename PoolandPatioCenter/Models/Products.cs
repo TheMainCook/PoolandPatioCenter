@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,8 +13,11 @@ namespace PoolandPatioCenter.Models
         public decimal Price { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
-        public List<string> Reviews { get; set; }
+        [ForeignKey("Category")]
+        public int CategoriesId { get; set; }
         public Category Category { get; set; }
-        public int CategoryId { get; set; }
+        [ForeignKey("ProductsImage")]
+        public int ProductsImagesId { get; set; }
+        public ProductsImage ProductsImage { get; set; }
     }
 }

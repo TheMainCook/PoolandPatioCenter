@@ -10,7 +10,6 @@ namespace PoolandPatioCenter.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "PoolandPatioCenter.Models.ApplicationDbContext";
         }
 
         protected override void Seed(PoolandPatioCenter.Models.ApplicationDbContext context)

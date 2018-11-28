@@ -8,6 +8,50 @@ namespace PoolandPatioCenter.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Carts",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        AspNetUsersId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Categories",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CategoryName = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Products",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Description = c.String(),
+                        Quantity = c.Int(nullable: false),
+                        CategoryId = c.Int(nullable: false),
+                        ProductsImageId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ProductsImages",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ImageName = c.String(),
+                        ImageAlt = c.String(),
+                        ImageData = c.Binary(),
+                        ContentType = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -94,6 +138,10 @@ namespace PoolandPatioCenter.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.ProductsImages");
+            DropTable("dbo.Products");
+            DropTable("dbo.Categories");
+            DropTable("dbo.Carts");
         }
     }
 }
