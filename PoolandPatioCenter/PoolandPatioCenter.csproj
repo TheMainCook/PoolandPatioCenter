@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201811280510459_updateproductsandreview.Designer.cs">
       <DependentUpon>201811280510459_updateproductsandreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281725254_SeedUsers.cs" />
+    <Compile Include="Migrations\201811281725254_SeedUsers.Designer.cs">
+      <DependentUpon>201811281725254_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811280510459_updateproductsandreview.resx">
       <DependentUpon>201811280510459_updateproductsandreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281725254_SeedUsers.resx">
+      <DependentUpon>201811281725254_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
