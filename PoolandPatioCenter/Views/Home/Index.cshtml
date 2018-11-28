@@ -3,29 +3,49 @@
 }
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1 style="color:white; background-color:rgba(15,109,204,.45);display:inline-block;padding:5px;">Pool & Patio Center</h1>
+        <p style="color:white; background-color:rgba(15,109,204,.45);display:inline-block;padding:5px;" class="lead">Find the solution to your pool and patio problems.<br/>Explore the store today!</p>
+        <p><a href="~/Views/Home/About.cshtml" class="btn btn-primary btn-lg">Store &raquo;</a></p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 block_off">
+            <h3 style="grid-column-start: 1; grid-column-end: 3;">You may be interested in...</h3> <!-- Say "Welcome Back, $name! Begin where we left off?" if logged in -->
+            <img src="https://via.placeholder.com/150" style="float:left;" /> <!-- get image of particular item (last viewed item if logged in, random otherwise) -->
+            <div>
+                <p>
+                    $Name.Var <br /> <!-- get name of particular item -->
+                    $Price.Var <br /> <!-- get price of particular item -->
+                </p>
+                <p><a class="btn btn-default" href="#">Add to cart &raquo;</a></p> <!-- add to cart function w/ particular item -->
+            </div>
+        </div>
+        <div class="col-sm-6 block_off">
+            <h3 style="grid-column-start: 1; grid-column-end: 3;">Our newest addition:</h3> <!-- -->
+            <img src="https://via.placeholder.com/150" style="float:left;" /> <!-- get image of most recently added item -->
+            <div>
+                <p>
+                    $Name.Var <br /> <!-- get name of most recently added item -->
+                    $Price.Var <br /> <!-- get price of most recently added item -->
+                </p>
+                <p><a class="btn btn-default" href="#">Add to cart &raquo;</a></p> <!-- add to cart function w/ most recently added item -->
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>
+<style>
+
+    .block_off {
+        background-color: whitesmoke;
+        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        border: 5px solid rgba(255,255,255,.5);
+    }
+
+    .jumbotron {
+        background-image: url(../../Content/1503685913610.jpg);
+    }
+
+
+
+</style>
