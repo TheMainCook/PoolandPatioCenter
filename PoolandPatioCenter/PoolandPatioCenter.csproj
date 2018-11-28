@@ -193,13 +193,57 @@
     <Compile Include="Migrations\201811201736140_InitialCreate.Designer.cs">
       <DependentUpon>201811201736140_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811280201563_populateCategories.cs" />
+    <Compile Include="Migrations\201811280201563_populateCategories.Designer.cs">
+      <DependentUpon>201811280201563_populateCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280343168_updateProducts.cs" />
+    <Compile Include="Migrations\201811280343168_updateProducts.Designer.cs">
+      <DependentUpon>201811280343168_updateProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280345469_updateProducts1.cs" />
+    <Compile Include="Migrations\201811280345469_updateProducts1.Designer.cs">
+      <DependentUpon>201811280345469_updateProducts1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280353215_addedCartItem.cs" />
+    <Compile Include="Migrations\201811280353215_addedCartItem.Designer.cs">
+      <DependentUpon>201811280353215_addedCartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280401337_addedReviewandLastBought.cs" />
+    <Compile Include="Migrations\201811280401337_addedReviewandLastBought.Designer.cs">
+      <DependentUpon>201811280401337_addedReviewandLastBought.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280405243_updateCart.cs" />
+    <Compile Include="Migrations\201811280405243_updateCart.Designer.cs">
+      <DependentUpon>201811280405243_updateCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280417131_updateCartItem.cs" />
+    <Compile Include="Migrations\201811280417131_updateCartItem.Designer.cs">
+      <DependentUpon>201811280417131_updateCartItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280426163_updateCartItem1.cs" />
+    <Compile Include="Migrations\201811280426163_updateCartItem1.Designer.cs">
+      <DependentUpon>201811280426163_updateCartItem1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280501074_updateCart1.cs" />
+    <Compile Include="Migrations\201811280501074_updateCart1.Designer.cs">
+      <DependentUpon>201811280501074_updateCart1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280510459_updateproductsandreview.cs" />
+    <Compile Include="Migrations\201811280510459_updateproductsandreview.Designer.cs">
+      <DependentUpon>201811280510459_updateproductsandreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LastBought.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ProductsImage.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -275,6 +319,36 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811201736140_InitialCreate.resx">
       <DependentUpon>201811201736140_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280201563_populateCategories.resx">
+      <DependentUpon>201811280201563_populateCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280343168_updateProducts.resx">
+      <DependentUpon>201811280343168_updateProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280345469_updateProducts1.resx">
+      <DependentUpon>201811280345469_updateProducts1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280353215_addedCartItem.resx">
+      <DependentUpon>201811280353215_addedCartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280401337_addedReviewandLastBought.resx">
+      <DependentUpon>201811280401337_addedReviewandLastBought.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280405243_updateCart.resx">
+      <DependentUpon>201811280405243_updateCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280417131_updateCartItem.resx">
+      <DependentUpon>201811280417131_updateCartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280426163_updateCartItem1.resx">
+      <DependentUpon>201811280426163_updateCartItem1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280501074_updateCart1.resx">
+      <DependentUpon>201811280501074_updateCart1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280510459_updateproductsandreview.resx">
+      <DependentUpon>201811280510459_updateproductsandreview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
