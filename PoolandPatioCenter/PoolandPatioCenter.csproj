@@ -237,9 +237,16 @@
     <Compile Include="Migrations\201811281725254_SeedUsers.Designer.cs">
       <DependentUpon>201811281725254_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281835581_updatedLastBoughtwithQty.cs" />
+    <Compile Include="Migrations\201811281835581_updatedLastBoughtwithQty.Designer.cs">
+      <DependentUpon>201811281835581_updatedLastBoughtwithQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811282220075_updatedCartItemanddeletedCart.cs" />
+    <Compile Include="Migrations\201811282220075_updatedCartItemanddeletedCart.Designer.cs">
+      <DependentUpon>201811282220075_updatedCartItemanddeletedCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -358,6 +365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811281725254_SeedUsers.resx">
       <DependentUpon>201811281725254_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281835581_updatedLastBoughtwithQty.resx">
+      <DependentUpon>201811281835581_updatedLastBoughtwithQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811282220075_updatedCartItemanddeletedCart.resx">
+      <DependentUpon>201811282220075_updatedCartItemanddeletedCart.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

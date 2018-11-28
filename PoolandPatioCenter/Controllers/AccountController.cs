@@ -18,10 +18,12 @@ namespace PoolandPatioCenter.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+       
         public AccountController()
         {
+          
         }
+        
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -421,7 +423,7 @@ namespace PoolandPatioCenter.Controllers
                     _signInManager = null;
                 }
             }
-
+            _context.Dispose();
             base.Dispose(disposing);
         }
 

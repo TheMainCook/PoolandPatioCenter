@@ -10,9 +10,9 @@ namespace PoolandPatioCenter.Models
     {
         public int Id { get; set; }
         public int CartItemQuantity { get; set; }
-        [ForeignKey("Cart")]
-        public int CartId { get; set; }
-        public Cart Cart { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
         [ForeignKey("Products")]
         public int ProductId { get; set; }
         public Products Products { get; set; }

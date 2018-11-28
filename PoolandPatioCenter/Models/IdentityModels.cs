@@ -25,7 +25,6 @@ namespace PoolandPatioCenter.Models
         public DbSet<Products> Products { get; set; }
         public DbSet<ProductsImage> ProductsImage { get; set; }
         public DbSet<Category> Category { get; set; }
-        public DbSet<Cart> Cart { get; set; }
         public DbSet<CartItem> CartItem { get; set; }
         public DbSet<Review> Review { get; set; }
         public DbSet<LastBought> LastBought { get; set; }

@@ -9,6 +9,7 @@ namespace PoolandPatioCenter.Models
     public class LastBought
     {
         public int Id { get; set; }
+        public int LastBoughtQuantity { get; set; }
         public DateTime LastBoughtDate { get; set; }
         [ForeignKey("Products")]
         public int ProductsId { get; set; }
