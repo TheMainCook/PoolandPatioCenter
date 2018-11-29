@@ -3,6 +3,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br/>
+<div class="dropdown">
+    <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span> Categories </a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Pool Chemicals</a></li>
+        <li><a href="#">Grills</a></li>
+        <li><a href="#">Spas</a></li>
+        <li><a href="#">Entertainment</a></li>
+        <li><a href="#">Patio</a></li>
+        <li><a href="#">Furniture</a></li>
+    </ul>
+</div>
 
-<h2>@Model.Name</h2>
+<h2>Products</h2>
+
+<p>@Model.Name, @Model.Price, @Model.Description</p>
+
 
