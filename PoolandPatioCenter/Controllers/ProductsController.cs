@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PoolandPatioCenter.Models;
+
 namespace PoolandPatioCenter.Controllers
 {
     [AllowAnonymous]
@@ -17,16 +18,24 @@ namespace PoolandPatioCenter.Controllers
             _context = new ApplicationDbContext();
         }
 
-        //protected override void Dispose(bool disposing)
-
-        //public ActionResult Index()
-        //{
-
-        //}
-
-        public ActionResult Index()
+        protected override void Dispose(bool disposing)
         {
-            var product = new Products() { };
+            _context.Dispose();
+        }
+
+        public ViewResult Index()
+        {
+            var products = _context.Products.ToList();
+            return View(products);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var product = _context.Products.SingleOrDefault(p => p.Id == id);
+
+            if (product == null)
+                return HttpNotFound();
+
             return View(product);
         }
     }

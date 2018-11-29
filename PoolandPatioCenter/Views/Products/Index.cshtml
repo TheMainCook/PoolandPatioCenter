@@ -1,4 +1,4 @@
-﻿@model PoolandPatioCenter.Models.Products
+﻿@model IEnumerable<PoolandPatioCenter.Models.Products>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,8 +29,19 @@
         </div>
     </div>
 </div>
-<h2>Products</h2>
 
-<p>@Model.Name, @Model.Price, @Model.Description</p>
+<table>
+    <thead>
+    Products
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(product.Name, "Details", "Customers", new {id = product.id}, null)</td>
+        </tr>
+    }
+    </tbody>
+</table>
 
 
