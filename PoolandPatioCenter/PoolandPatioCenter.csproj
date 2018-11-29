@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201811290248034_populateproducts2.Designer.cs">
       <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811290804593_populateproducts3.cs" />
+    <Compile Include="Migrations\201811290804593_populateproducts3.Designer.cs">
+      <DependentUpon>201811290804593_populateproducts3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -423,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290248034_populateproducts2.resx">
       <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290804593_populateproducts3.resx">
+      <DependentUpon>201811290804593_populateproducts3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
