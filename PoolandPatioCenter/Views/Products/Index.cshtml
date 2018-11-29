@@ -49,7 +49,7 @@ else
             @foreach (var product in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(product.Name, "Details", "Customers", new { id = product.Id }, null)</td>
+                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
                 </tr>
             }
         </tbody>
