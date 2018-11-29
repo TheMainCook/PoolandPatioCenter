@@ -29,11 +29,21 @@ namespace PoolandPatioCenter.Controllers
         public ViewResult Index()
         {
             var products = _context.Products.ToList();
+            //return View(products);
 
             if (User.IsInRole("CanManageProducts"))
+            {
                 return View("Index", products);
+
+            }
+            else if (User.IsInRole("CanManageProducts"))
+            {
+                return View("IndexCustomerView", products);
+            }
             else
-                return View("ReadOnlyIndex", products);
+            {
+                return View("IndexReadOnly", products);
+            }
         }
 
         //public ViewResult New()
@@ -129,37 +139,67 @@ namespace PoolandPatioCenter.Controllers
         public ViewResult Entertainment()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Entertainment", products);
+            else
+                return View("EntertainmentReadOnly", products);
         }
 
         public ViewResult Spas()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Spas", products);
+            else
+                return View("SpasReadOnly", products);
         }
 
         public ViewResult Grills()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Grills", products);
+            else
+                return View("GrillsReadOnly", products);
         }
 
         public ViewResult Patio()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Patio", products);
+            else
+                return View("PatioReadOnly", products);
         }
 
         public ViewResult Furniture()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Furniture", products);
+            else
+                return View("FurnitureReadOnly", products);
         }
 
         public ViewResult PoolChemicals()
         {
             var products = _context.Products.ToList();
-            return View(products);
+            //return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("PoolChemicals", products);
+            else
+                return View("PoolChemicalsReadOnly", products);
         }
         #endregion
 

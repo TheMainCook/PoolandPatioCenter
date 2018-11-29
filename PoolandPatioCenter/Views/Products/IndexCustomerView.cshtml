@@ -30,7 +30,7 @@ else
             @foreach (var product in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)<button class="btn btn-danger btn-sm pull-right" type="submit">delete</button></td>
+                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)<button class="btn btn-success btn-sm pull-right" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span></button></td>
                     <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
                     <td>
@@ -47,28 +47,10 @@ else
             }
         </tbody>
     </table>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Items Sold</th>
-                <th>Revenue</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td>ITEMS</td>
-                <td>REVENUES</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>Totals</td>
-                <td>TOTAL ITEMS</td>
-                <td>TOTAL REVENUES</td>
-            </tr>
-        </tfoot>
-    </table>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Leave a review...</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
 }
 

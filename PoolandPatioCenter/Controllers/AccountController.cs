@@ -159,10 +159,10 @@ namespace PoolandPatioCenter.Controllers
                 if (result.Succeeded)
                 {
                     //Temp Code
-                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                    var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    await roleManager.CreateAsync(new IdentityRole("CanManageProducts"));
-                    await UserManager.AddToRoleAsync(user.Id, "CanManageProducts");
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanPurchaseProducts"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanPurchaseProducts");
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
