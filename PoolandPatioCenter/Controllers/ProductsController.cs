@@ -39,5 +39,38 @@ namespace PoolandPatioCenter.Controllers
 
             return View(product);
         }
+
+        #region DropDownVeiws
+        public ViewResult Spas()
+        {
+            return View();
+        }
+
+        public ViewResult Grills()
+        {
+            return View();
+        }
+
+        public ViewResult Patio()
+        {
+            return View();
+        }
+
+        public ViewResult Entertainment()
+        {
+            return View();
+        }
+
+        public ViewResult Furniture()
+        {
+            return View();
+        }
+
+        public ViewResult PoolChemicals()
+        {
+            return View();
+        }
+        #endregion
+
     }
 }

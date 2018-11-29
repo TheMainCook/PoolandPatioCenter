@@ -359,6 +359,13 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\ReadOnlyList.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Products\PoolChemicals.cshtml" />
+    <Content Include="Views\Products\Grills.cshtml" />
+    <Content Include="Views\Products\Spas.cshtml" />
+    <Content Include="Views\Products\Furniture.cshtml" />
+    <Content Include="Views\Products\Entertainment.cshtml" />
+    <Content Include="Views\Products\Patio.cshtml" />
+    <Content Include="Views\Shared\_SearchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
