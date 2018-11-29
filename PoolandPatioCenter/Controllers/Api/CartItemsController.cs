@@ -19,9 +19,9 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/CartItems/i
-        public IEnumerable<CartItem> GetCartItem(int id)
+        public IEnumerable<CartItem> GetCartItem(string id)
         {
-            return _context.CartItem.Include(r => r.UserId).ToList();
+            return _context.CartItem.Include(r => r.ProductId).Where(r => r.UserId == id).ToList();
         }
 
 

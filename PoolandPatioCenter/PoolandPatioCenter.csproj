@@ -271,6 +271,14 @@
     <Compile Include="Migrations\201811290059014_updatedProductsagain.Designer.cs">
       <DependentUpon>201811290059014_updatedProductsagain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811290242383_populateproducts.cs" />
+    <Compile Include="Migrations\201811290242383_populateproducts.Designer.cs">
+      <DependentUpon>201811290242383_populateproducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290248034_populateproducts2.cs" />
+    <Compile Include="Migrations\201811290248034_populateproducts2.Designer.cs">
+      <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -407,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290059014_updatedProductsagain.resx">
       <DependentUpon>201811290059014_updatedProductsagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290242383_populateproducts.resx">
+      <DependentUpon>201811290242383_populateproducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290248034_populateproducts2.resx">
+      <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
