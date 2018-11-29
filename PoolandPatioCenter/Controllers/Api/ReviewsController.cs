@@ -21,7 +21,7 @@ namespace PoolandPatioCenter.Controllers.Api
         // GET /api/Review/i
         public IEnumerable<Review> GetReview(int id)
         {
-            return _context.Review.Include(r => r.ProductsId).ToList();
+            return _context.Review.Where(r => r.ProductsId == id).ToList();
         }
 
 

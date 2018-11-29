@@ -26,9 +26,9 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/LastBought/i
-        public IEnumerable<LastBought> GetLastBought(int id)
+        public IEnumerable<LastBought> GetLastBought(string id)
         {
-            return _context.LastBought.Include(r => r.UserId).ToList();
+            return _context.LastBought.Where(l => l.UserId == id).ToList();
         }
 
 
