@@ -19,6 +19,7 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/Review/i
+        [HttpGet]
         public IEnumerable<Review> GetReview(int id)
         {
             return _context.Review.Where(r => r.ProductsId == id).ToList();
@@ -74,6 +75,7 @@ namespace PoolandPatioCenter.Controllers.Api
 
 
         // DELETE /api/Review/1
+        [HttpDelete]
         public void DeleteReview(int id)
         {
             var ReviewInDb = _context.Review.SingleOrDefault(p => p.Id == id);

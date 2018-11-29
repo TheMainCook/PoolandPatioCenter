@@ -19,6 +19,7 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/CartItems/i
+        [HttpGet]
         public IEnumerable<CartItem> GetCartItem(string id)
         {
             return _context.CartItem.Include(r => r.ProductId).Where(r => r.UserId == id).ToList();
@@ -74,6 +75,7 @@ namespace PoolandPatioCenter.Controllers.Api
 
 
         // DELETE /api/CartItem/1
+        [HttpDelete]
         public void DeleteCartItem(int id)
         {
             var CartItemInDb = _context.CartItem.SingleOrDefault(p => p.Id == id);

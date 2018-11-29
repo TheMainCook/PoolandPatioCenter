@@ -1,6 +1,7 @@
 ﻿using PoolandPatioCenter.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -17,9 +18,11 @@ namespace PoolandPatioCenter.Controllers.Api
             _context = new ApplicationDbContext();
         }
         // GET /api/Products
+        [HttpGet]
         public IEnumerable<Products> GetProducts()
         {
-            return _context.Products.ToList();
+            
+            return _context.Products.Include(p => p.ProductsImage).Include(p => p.Category).ToList();
         } 
 
         // POST /api/Products
@@ -95,6 +98,7 @@ namespace PoolandPatioCenter.Controllers.Api
 
 
         // DELETE /api/Product/1
+        [HttpDelete]
         public void DeleteProduct(int id)
         {
             var ProductInDb = _context.Products.SingleOrDefault(p => p.Id == id);

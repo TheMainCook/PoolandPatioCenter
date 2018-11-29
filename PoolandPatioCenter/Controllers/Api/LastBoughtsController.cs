@@ -18,7 +18,7 @@ namespace PoolandPatioCenter.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/LastBought/i
+        // GET /api/LastBought
         [HttpGet]
         public IEnumerable<LastBought> GetAllLastBought()
         {
@@ -26,6 +26,7 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/LastBought/i
+        [HttpGet]
         public IEnumerable<LastBought> GetLastBought(string id)
         {
             return _context.LastBought.Where(l => l.UserId == id).ToList();
@@ -57,6 +58,7 @@ namespace PoolandPatioCenter.Controllers.Api
 
 
         // DELETE /api/LastBought/1
+        [HttpDelete]
         public void DeleteLastBought(int id)
         {
             var LastBoughtInDb = _context.LastBought.SingleOrDefault(p => p.Id == id);
