@@ -27,8 +27,24 @@ namespace PoolandPatioCenter.Controllers
         public ViewResult Index()
         {
             var products = _context.Products.ToList();
-            return View(products);
+
+            if (User.IsInRole("CanManageProducts"))
+                return View("Index", products);
+            else
+                return View("ReadOnlyIndex", products);
         }
+
+        //public ViewResult New()
+        //{
+        //    var products = _context.Products.ToList();
+
+        //    if (User.IsInRole("CanManageProducts"))
+        //        return View(products);
+        //    else
+        //    {
+        //        return View
+        //    }
+        //}
 
         public ActionResult Details(int id)
         {
