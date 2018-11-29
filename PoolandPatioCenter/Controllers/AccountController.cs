@@ -422,7 +422,7 @@ namespace PoolandPatioCenter.Controllers
                     _signInManager = null;
                 }
             }
-            //_context.Dispose();
+            _context.Dispose();
             base.Dispose(disposing);
         }
 
