@@ -18,6 +18,68 @@
 
 <h2>Products</h2>
 
-<p>@Model.Name, @Model.Price, @Model.Description</p>
+<!-- ITERATE AS MANY TIMES AS THERE ARE TOTAL ITEMS -->
+<div class="product_box">
+    <div id="picture">
+        <!-- picture -->
+        <img src="@Model.ProductsImage" />
+    </div>
+    <div id="name">
+        <!-- name -->
+        <h3>@Model.Name</h3>
+    </div>
+    <div id="category">
+        <!-- category -->
+        <h4>@Model.Category</h4>
+    </div>
+    <div id="price">
+        <!-- price -->
+        <h4>@Model.Price</h4>
+    </div>
+    <div id="addtocart">
+        <!-- add to cart button -->
+    </div>
+    <div id="description">
+        <!-- description -->
+        <p>@Model.Description</p>
+    </div>
+</div>
 
+<style>
 
+    .product_box {
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr;
+        height: 200px;
+        background-color: lightgrey;
+        grid-template-areas:
+            "picture name price"
+            "picture category addtocart"
+            "picture description description"
+    }
+
+    #picture {
+        grid-area: picture;
+        background-color: red; /* colors are for troubleshooting... remove when published */
+    }
+    #name {
+        grid-area: name;
+        background-color: green;
+    }
+    #price {
+        grid-area: price;
+        background-color: lawngreen;
+    }
+    #category {
+        grid-area: category;
+        background-color: blue;
+    }
+    #addtocart {
+        grid-area: addtocart;
+    }
+    #description {
+        grid-area: description;
+        background-color: orange;
+    }
+
+</style>
