@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br/>
+<br />
 <div class="row">
     <div>
         <div class="col-sm-8">
@@ -30,18 +30,29 @@
     </div>
 </div>
 
-<table>
-    <thead>
-    Products
-    </thead>
-    <tbody>
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td>@Html.ActionLink(product.Name, "Details", "Customers", new {id = product.id}, null)</td>
-        </tr>
-    }
-    </tbody>
-</table>
+<br />
 
+<h2>Products</h2>
+@if (!Model.Any())
+{
+    <p>We don't have any products yet</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(product.Name, "Details", "Customers", new { id = product.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
