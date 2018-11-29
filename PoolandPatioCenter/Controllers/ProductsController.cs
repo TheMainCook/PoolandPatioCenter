@@ -10,6 +10,7 @@ namespace PoolandPatioCenter.Controllers
     [AllowAnonymous]
     public class ProductsController : Controller
     {
+        
         // GET: Products
         private ApplicationDbContext _context;
 
@@ -22,7 +23,7 @@ namespace PoolandPatioCenter.Controllers
         {
             _context.Dispose();
         }
-
+        
         public ViewResult Index()
         {
             var products = _context.Products.ToList();
