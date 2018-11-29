@@ -37,17 +37,17 @@ namespace PoolandPatioCenter.Controllers.Api
 
         // POST /api/LastBought
         [HttpPost]
-        public LastBought CreateLastBought(LastBought LastBought)
+        public IHttpActionResult CreateLastBought(LastBought LastBought)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             _context.LastBought.Add(LastBought);
             _context.SaveChanges();
 
-            return LastBought;
+            return Created(new Uri(Request.RequestUri +"/" + LastBought.Id),LastBought);
         }
 
 
@@ -59,17 +59,19 @@ namespace PoolandPatioCenter.Controllers.Api
 
         // DELETE /api/LastBought/1
         [HttpDelete]
-        public void DeleteLastBought(int id)
+        public IHttpActionResult DeleteLastBought(int id)
         {
             var LastBoughtInDb = _context.LastBought.SingleOrDefault(p => p.Id == id);
 
             if (LastBoughtInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             _context.LastBought.Remove(LastBoughtInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
 
     }

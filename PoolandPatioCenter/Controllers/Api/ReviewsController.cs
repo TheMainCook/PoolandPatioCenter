@@ -30,35 +30,35 @@ namespace PoolandPatioCenter.Controllers.Api
 
         // POST /api/Review
         [HttpPost]
-        public Review CreateReviews(Review Review)
+        public IHttpActionResult CreateReviews(Review Review)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             _context.Review.Add(Review);
             _context.SaveChanges();
 
-            return Review;
+            return Created(new Uri(Request.RequestUri+"/"+Review.Id), Review);
         }
 
 
 
         // PUT /api/Review/1
         [HttpPut]
-        public void UpdateReviews(int id, Review Review)
+        public IHttpActionResult UpdateReviews(int id, Review Review)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var ReviewInDb = _context.Review.SingleOrDefault(p => p.Id == id);
 
             if (ReviewInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             ReviewInDb.Reviewstring = Review.Reviewstring;
@@ -69,6 +69,7 @@ namespace PoolandPatioCenter.Controllers.Api
 
             _context.SaveChanges();
 
+            return Ok();
         }
 
 
@@ -76,17 +77,19 @@ namespace PoolandPatioCenter.Controllers.Api
 
         // DELETE /api/Review/1
         [HttpDelete]
-        public void DeleteReview(int id)
+        public IHttpActionResult DeleteReview(int id)
         {
             var ReviewInDb = _context.Review.SingleOrDefault(p => p.Id == id);
 
             if (ReviewInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             _context.Review.Remove(ReviewInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
 
     }

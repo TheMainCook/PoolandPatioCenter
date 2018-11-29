@@ -24,8 +24,8 @@ namespace PoolandPatioCenter.Controllers
 
         public ViewResult Index()
         {
-            var products = _context.Products.ToList();
-            return View(products);
+           // var products = _context.Products.ToList();
+            return View();
         }
 
         public ActionResult Details(int id)
