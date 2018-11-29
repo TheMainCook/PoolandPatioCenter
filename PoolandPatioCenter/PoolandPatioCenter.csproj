@@ -366,6 +366,7 @@
     <Content Include="Views\Products\Entertainment.cshtml" />
     <Content Include="Views\Products\Patio.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
+    <Content Include="Views\Products\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

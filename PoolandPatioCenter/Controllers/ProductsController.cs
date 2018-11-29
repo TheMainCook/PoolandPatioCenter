@@ -40,6 +40,11 @@ namespace PoolandPatioCenter.Controllers
             return View(product);
         }
 
+        public ViewResult AddProduct()
+        {
+            return View();
+        }
+
         #region CategoriesDropDownVeiws
 
         public ViewResult Entertainment()
