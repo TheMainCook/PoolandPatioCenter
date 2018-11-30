@@ -158,6 +158,18 @@ namespace PoolandPatioCenter.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Code below makes new members view CustomerVeiw (comment out if need for AdminMember)
+                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    await roleManager.CreateAsync(new IdentityRole("CanPurchaseProducts"));
+                    await UserManager.AddToRoleAsync(user.Id, "CanPurchaseProducts");
+
+                    //Code below makes new members view AdminView (comment out if need for CustomerMember)
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageProducts"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageProducts");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

@@ -3,184 +3,122 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br/>
-<div class="dropdown">
-    <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span> Categories </a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Pool Chemicals</a></li>
-        <li><a href="#">Grills</a></li>
-        <li><a href="#">Spas</a></li>
-        <li><a href="#">Entertainment</a></li>
-        <li><a href="#">Patio</a></li>
-        <li><a href="#">Furniture</a></li>
-    </ul>
-</div>
+
 
 <h2>Products</h2>
 
-<p id="a"></p>
+<div class="row">
+    <div class="col-sm-8">
+        <button class="btn btn-primary" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+            @Html.ActionLink("Add Product", "ProductsForm", "Products", null, new { @style = "color:white; text-decoration:none;" })
+        </button>
+    </div>
+    <div>
+        <div class="col-sm-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-success pull-right" type="submit">Go</button> <!--Cannot get button to append-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
 
-@section Scripts {
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            
+@if (!Model.Any())
+{
+    <p>We don't have any products yet</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Amount In Stock</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
+                    <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
+                    <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
+                    <td>
+                        @if (product.Quantity == 0)
+                        {
+                            <p>OUT OF STOCK</p>
+                        }
+                        else
+                        {
+                            @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
+                        }
+                    </td>
+                    <td><button id="@product.Id" onclick="" class="btn btn-danger btn-sm deletebtn" type="submit">delete</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Items Sold</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>ITEMS</td>
+                <td>REVENUES</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Totals</td>
+                <td>TOTAL ITEMS</td>
+                <td>TOTAL REVENUES</td>
+            </tr>
+        </tfoot>
+    </table>
+}
 
-            $.ajax({
-                type: "GET",
-                contentType: 'application/json; charset=utf-8',
-                url: "https://localhost:44332/api/Products",
+@section scripts{
+    <script>
 
-                dataType: 'json',
-                success: function (result) {
-                    var a = "";
-                    for (var i = 0; i < result.length; i++) {
-                        a += "Name:" + result[i].name + "        " + result[i].category.categoryName;
-                    }
-                    $("p").html(a);
-                    alert(result[0].name);
-                },
-                error: function () {
-                    alert("error");
-                }
-            });
-
-
-           
-            $.ajax({
-                type: "POST",
-                contentType: 'application/json; charset=utf-8',
-                url: "https://localhost:44332/api/Products",
-                data: `{
-                    "Name": "testwithajax3",
-                    "Price": 100,
-                    "Description": "a test with postman",
-                    "Quantity": 2,
-                    "CategoriesId": 1,
-                    "ProductsImagesId": null,
-                    "ProductsImage": null
-                }`,
-                dataType: 'jsonp',
-                success: function (result) {
-                    
-                    alert("Happy");
-                },
-                error: function () {
-                    alert("error");
-                }
-            });
-
-            $.ajax({
-                type: "PUT",
-                contentType: 'application/json; charset=utf-8',
-                url: "https://localhost:44332/api/Products/8",
-                data: `{
-                    "Name": "testwithajaxput",
-                    "Price": 100,
-                    "Description": "a test with postman",
-                    "Quantity": 2,
-                    "CategoriesId": 1,
-                    "ProductsImagesId": null,
-                    "ProductsImage": null
-                }`,
-                dataType: 'jsonp',
-                success: function (result) {
-
-                    alert("Happy");
-                },
-                error: function () {
-                    alert("error");
-                }
-            });
-
+        $(".deletebtn").click(function () {
+            var a = $(this);
             $.ajax({
                 type: "DELETE",
                 contentType: 'application/json; charset=utf-8',
-                url: "https://localhost:44332/api/Products/11",
+                url: "https://localhost:44332/api/Products/" + a.attr("id"),
                 dataType: 'jsonp',
                 success: function (result) {
-
-                    alert("Happy");
+                    alert("Deleted ID:"+ a.attr("id") + "to delete the row please refresh");
+                    var b = a.parent("tr");
+                    b.remove();
+                    
                 },
                 error: function () {
                     alert("error");
                 }
             });
 
-        });
 
-</script>
+
+        })
+
+    </script>
+    
+
     
     
+    
     }
-
-
-
-
-
-
-<!-- ITERATE AS MANY TIMES AS THERE ARE TOTAL ITEMS 
-<div class="product_box">
-    <div id="picture">
-      
-        <img src="Model.ProductsImage" />
-    </div>
-    <div id="name">
-        
-        <h3>Model.Name (Model.Quantity)</h3>
-    </div>
-    <div id="category">
-       
-        <h4>Model.Category</h4>
-    </div>
-    <div id="price">
-        
-        <h4>Model.Price</h4>
-    </div>
-    <div id="addtocart">
-       
-    </div>
-    <div id="description">
-       
-        <p>Model.Description</p>
-    </div>
-</div>
--->
-<style>
-
-    .product_box {
-        display: grid;
-        grid-template-columns: 200px 1fr 1fr;
-        height: 200px;
-        background-color: lightgrey;
-        grid-template-areas:
-            "picture name price"
-            "picture category addtocart"
-            "picture description description"
-    }
-
-    #picture {
-        grid-area: picture;
-        background-color: red; /* colors are for troubleshooting... remove when published */
-    }
-    #name {
-        grid-area: name;
-        background-color: green;
-    }
-    #price {
-        grid-area: price;
-        background-color: lawngreen;
-    }
-    #category {
-        grid-area: category;
-        background-color: blue;
-    }
-    #addtocart {
-        grid-area: addtocart;
-    }
-    #description {
-        grid-area: description;
-        background-color: orange;
-    }
-
-</style>

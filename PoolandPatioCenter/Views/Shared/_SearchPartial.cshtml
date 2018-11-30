@@ -1,0 +1,26 @@
+﻿<br/>    
+<div class="row">
+        <div class="col-sm-8">
+            <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span> Categories </a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Pool Chemicals", "PoolChemicals", "Products")</li>
+                    <li>@Html.ActionLink("Grills", "Grills", "Products")</li>
+                    <li>@Html.ActionLink("Spas", "Spas", "Products")</li>
+                    <li>@Html.ActionLink("Entertainment", "Entertainment", "Products")</li>
+                    <li>@Html.ActionLink("Patio", "Patio", "Products")</li>
+                    <li>@Html.ActionLink("Furniture", "Furniture", "Products")</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-success pull-right" type="submit">Go</button> <!--Cannot get button to append-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

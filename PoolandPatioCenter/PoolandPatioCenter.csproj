@@ -197,6 +197,7 @@
     <Compile Include="Controllers\Api\LastBoughtsController.cs" />
     <Compile Include="Controllers\Api\ProductsController.cs" />
     <Compile Include="Controllers\Api\ReviewsController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -279,6 +280,22 @@
     <Compile Include="Migrations\201811290248034_populateproducts2.Designer.cs">
       <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811290804593_populateproducts3.cs" />
+    <Compile Include="Migrations\201811290804593_populateproducts3.Designer.cs">
+      <DependentUpon>201811290804593_populateproducts3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811292041352_seedusers69.cs" />
+    <Compile Include="Migrations\201811292041352_seedusers69.Designer.cs">
+      <DependentUpon>201811292041352_seedusers69.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811292310460_seedusers68.cs" />
+    <Compile Include="Migrations\201811292310460_seedusers68.Designer.cs">
+      <DependentUpon>201811292310460_seedusers68.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811292312427_seedusers67.cs" />
+    <Compile Include="Migrations\201811292312427_seedusers67.Designer.cs">
+      <DependentUpon>201811292312427_seedusers67.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -353,7 +370,23 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Products\ReadOnlyList.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Products\PoolChemicalsCustomerView.cshtml" />
+    <Content Include="Views\Products\GrillsCustomerView.cshtml" />
+    <Content Include="Views\Products\SpasCustomerView.cshtml" />
+    <Content Include="Views\Products\FurnitureCustomerView.cshtml" />
+    <Content Include="Views\Products\EntertainmentCustomerView.cshtml" />
+    <Content Include="Views\Products\PatioCustomerView.cshtml" />
+    <Content Include="Views\Shared\_SearchPartial.cshtml" />
+    <Content Include="Views\Products\AddProduct.cshtml" />
+    <Content Include="Views\Products\ProductsForm.cshtml" />
+    <Content Include="Views\Products\EntertainmentReadOnly.cshtml" />
+    <Content Include="Views\Products\FurnitureReadOnly.cshtml" />
+    <Content Include="Views\Products\GrillsReadOnly.cshtml" />
+    <Content Include="Views\Products\SpasReadOnly.cshtml" />
+    <Content Include="Views\Products\PatioReadOnly.cshtml" />
+    <Content Include="Views\Products\PoolChemicalsReadOnly.cshtml" />
+    <Content Include="Views\Products\IndexCustomerView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -422,6 +455,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811290248034_populateproducts2.resx">
       <DependentUpon>201811290248034_populateproducts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290804593_populateproducts3.resx">
+      <DependentUpon>201811290804593_populateproducts3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811292041352_seedusers69.resx">
+      <DependentUpon>201811292041352_seedusers69.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811292310460_seedusers68.resx">
+      <DependentUpon>201811292310460_seedusers68.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811292312427_seedusers67.resx">
+      <DependentUpon>201811292312427_seedusers67.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

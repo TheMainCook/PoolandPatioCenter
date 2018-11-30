@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PoolandPatioCenter.Models.Products>
+@{
+    ViewBag.Title = "Entertainment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_SearchPartial")
+
+<h2>Entertainment</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any products yet</p>
+}
+else
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Amount In Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                if (product.CategoriesId == 4)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
+                        <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
+                        <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
+                        <td>
+                            @if (product.Quantity == 0)
+                            {
+                                <p>OUT OF STOCK</p>
+                            }
+                            else
+                            {
+                                @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
+                            }
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+}

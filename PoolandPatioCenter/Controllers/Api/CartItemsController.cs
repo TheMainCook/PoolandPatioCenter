@@ -24,10 +24,7 @@ namespace PoolandPatioCenter.Controllers.Api
         {
             return _context.CartItem.Include(r => r.ProductId).Where(r => r.UserId == id).ToList();
         }
-
-
-
-
+        
         // POST /api/CartItem
         [HttpPost]
         public IHttpActionResult CreateCartItems(CartItem CartItem)
