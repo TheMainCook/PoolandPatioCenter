@@ -1,0 +1,125 @@
+﻿@model IEnumerable<PoolandPatioCenter.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+<div class="row">
+    <div class="col-sm-8">
+        <button class="btn btn-primary" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+            @Html.ActionLink("Add Product", "ProductsForm", "Products", null, new { @style = "color:white; text-decoration:none;" })
+        </button>
+    </div>
+    <div>
+        <div class="col-sm-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-success pull-right" type="submit">Go</button> <!--Cannot get button to append-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+
+@if (!Model.Any())
+{
+    <p>We don't have any products yet</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Amount In Stock</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td><img src='/Products/GetProductsImageByProductId?id=@product.Id' style='width:50px' alt='ProductImage' /></td>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString()</td>
+                    <td>@product.Description</td>
+                    <td>
+                        @if (product.Quantity == 0)
+                        {
+                            <p>OUT OF STOCK</p>
+                        }
+                        else
+                        {
+                            @product.Quantity.ToString()
+                        }
+                    </td>
+                    <td><button id="@product.Id" onclick="" class="btn btn-danger btn-sm deletebtn" type="submit">delete</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Items Sold</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>ITEMS</td>
+                <td>REVENUES</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Totals</td>
+                <td>TOTAL ITEMS</td>
+                <td>TOTAL REVENUES</td>
+            </tr>
+        </tfoot>
+    </table>
+}
+
+@section scripts{
+    <script>
+
+        $(".deletebtn").click(function () {
+            var a = $(this);
+            $.ajax({
+                type: "DELETE",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products/" + a.attr("id"),
+                dataType: 'jsonp',
+                success: function (result) {
+                    alert("Deleted ID:"+ a.attr("id") + "to delete the row please refresh");
+                    var b = a.parent("tr");
+                    b.remove();
+                    
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+
+        })
+
+    </script>
+    
+
+    
+    
+    
+    }

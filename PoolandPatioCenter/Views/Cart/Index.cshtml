@@ -1,0 +1,127 @@
+﻿@model IEnumerable<PoolandPatioCenter.Models.CartItem>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal a = 0;
+    int num = 0;
+}
+
+<h2>Cart</h2>
+
+<br />
+
+@if (!Model.Any())
+{
+    <p>EMPTYt</p>
+}
+else
+{
+    <table id="@HttpContext.Current.User.Identity.GetUserId()" class="table table-bordered table-hover ttb">
+        <thead>
+            <tr id="@num" class="ttr">
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            @foreach (var CartItem in Model)
+            {
+                num += num;
+                    a += CartItem.Products.Price;
+                
+                <tr>
+                    <td>@CartItem.Products.Name</td>
+                    <td>@CartItem.Products.Description</td>
+                    <td>@CartItem.Products.Price</td>
+                    <td><button id="@CartItem.Id" onclick="" class="btn btn-danger btn-sm deletebtn" type="submit">delete</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Total: @a.ToString()</h3>
+}
+
+<div class="input-group mb-3">
+    <input id="CCN" type="number" min="1000000000000000" max="10000000000000000000" class="form-control" placeholder="CreditCard Number" aria-label="CreditCard Number" aria-describedby="basic-addon2">
+</div>
+<div class="input-group mb-3">
+    <input id="ED" type="datetime" min="2018-11-30" class="form-control" placeholder="Expiration Date" aria-label="Expiration Date" aria-describedby="basic-addon2">
+</div>
+<div class="input-group mb-3">
+    <input id="CCV" type="number" max="999" class="form-control" placeholder="CCV" aria-label="CCV" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <button  class="btn btn-outline-secondary validbtn" type="button">Validate</button>
+    </div>
+</div>
+<div id="checkout">
+
+</div>
+
+
+@section scripts{
+    <script>
+
+        $(".deletebtn").click(function () {
+            var a = $(this);
+            $.ajax({
+                type: "DELETE",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/CartItems/" + a.attr("id"),
+                dataType: 'jsonp',
+                success: function (result) {
+                    alert("Deleted ID:" + a.attr("id") + "to delete the row please refresh");
+                    var b = a.parent("tr");
+                    b.remove();
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+
+        });
+
+        $(".validbtn").click(function () {
+            var CCN = $("#CCN").val;
+            var ED = $("#ED").val;
+            var CCV = $("#CCV").val;
+
+            if (CCN != null && ED != null && CCV != null) {
+                $("#checkout").append('<button  class="btn btn- outline - secondary checkoutbtn" type="button">Checkout</button>')
+            }
+
+        });
+
+        $(".checkoutbtn").click(function () {
+            var num = $(".ttr").attr("id");
+            num = int.parse(num);
+            for (var i = 0; i < num; i++) {
+                var LastBought = new Object();
+                LastBought.LastBoughtDate = Date.parse("" + new Date().getDate + "-" + new Date().getMonth + "-" + new Date().getFullYear);
+                LastBought.ProductId = 7;
+                LastBought.UserId = $(".ttb").attr("id");
+                LastBought.LastBoughtQuantity = 1;
+                $.post('https://localhost:44332/api/LastBoughts', LastBought, function (data) {
+                    alert(data)
+                });
+            }
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+
+
+}
