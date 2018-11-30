@@ -26,7 +26,7 @@ else
         <tbody>
         @foreach (var product in Model)
         {
-            if (product.CategoriesId == 5)
+            if (product.CategoriesId == 1)
             {
                 <tr>
                     <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
