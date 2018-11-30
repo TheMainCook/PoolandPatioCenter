@@ -39,13 +39,14 @@ else
                 <th>Price</th>
                 <th>Description</th>
                 <th>Amount In Stock</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)<button class="btn btn-danger btn-sm pull-right" type="submit">delete</button></td>
+                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
                     <td>
@@ -58,6 +59,7 @@ else
                             @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
                         }
                     </td>
+                    <td><button class="btn btn-danger btn-sm pull-right" type="submit">delete</button></td>
                 </tr>
             }
         </tbody>
