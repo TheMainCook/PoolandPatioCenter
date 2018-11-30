@@ -323,6 +323,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -377,7 +378,6 @@
     <Content Include="Views\Products\EntertainmentCustomerView.cshtml" />
     <Content Include="Views\Products\PatioCustomerView.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
-    <Content Include="Views\Products\AddProduct.cshtml" />
     <Content Include="Views\Products\ProductsForm.cshtml" />
     <Content Include="Views\Products\EntertainmentReadOnly.cshtml" />
     <Content Include="Views\Products\FurnitureReadOnly.cshtml" />
