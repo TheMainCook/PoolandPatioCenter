@@ -19,6 +19,7 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/CartItems/i
+        [HttpGet]
         public IEnumerable<CartItem> GetCartItem(string id)
         {
             return _context.CartItem.Include(r => r.ProductId).Where(r => r.UserId == id).ToList();
@@ -26,35 +27,35 @@ namespace PoolandPatioCenter.Controllers.Api
         
         // POST /api/CartItem
         [HttpPost]
-        public CartItem CreateCartItems(CartItem CartItem)
+        public IHttpActionResult CreateCartItems(CartItem CartItem)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             _context.CartItem.Add(CartItem);
             _context.SaveChanges();
 
-            return CartItem;
+            return Created(new Uri(Request.RequestUri+"/"+CartItem.Id),CartItem);
         }
 
 
 
         // PUT /api/CartItem/1
         [HttpPut]
-        public void UpdateCartItems(int id, CartItem CartItem)
+        public IHttpActionResult UpdateCartItems(int id, CartItem CartItem)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var CartItemInDb = _context.CartItem.SingleOrDefault(p => p.Id == id);
 
             if (CartItemInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             CartItemInDb.UserId = CartItem.UserId;
@@ -65,23 +66,27 @@ namespace PoolandPatioCenter.Controllers.Api
 
             _context.SaveChanges();
 
+            return Ok();
         }
 
 
 
 
         // DELETE /api/CartItem/1
-        public void DeleteCartItem(int id)
+        [HttpDelete]
+        public IHttpActionResult DeleteCartItem(int id)
         {
             var CartItemInDb = _context.CartItem.SingleOrDefault(p => p.Id == id);
 
             if (CartItemInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             _context.CartItem.Remove(CartItemInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
 
     }

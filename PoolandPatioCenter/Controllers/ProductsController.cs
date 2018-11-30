@@ -26,6 +26,7 @@ namespace PoolandPatioCenter.Controllers
             _context.Dispose();
         }
         
+        
         public ViewResult Index()
         {
             var products = _context.Products.ToList();

@@ -18,7 +18,7 @@ namespace PoolandPatioCenter.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/LastBought/i
+        // GET /api/LastBought
         [HttpGet]
         public IEnumerable<LastBought> GetAllLastBought()
         {
@@ -26,6 +26,7 @@ namespace PoolandPatioCenter.Controllers.Api
         }
 
         // GET /api/LastBought/i
+        [HttpGet]
         public IEnumerable<LastBought> GetLastBought(string id)
         {
             return _context.LastBought.Where(l => l.UserId == id).ToList();
@@ -36,17 +37,17 @@ namespace PoolandPatioCenter.Controllers.Api
 
         // POST /api/LastBought
         [HttpPost]
-        public LastBought CreateLastBought(LastBought LastBought)
+        public IHttpActionResult CreateLastBought(LastBought LastBought)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             _context.LastBought.Add(LastBought);
             _context.SaveChanges();
 
-            return LastBought;
+            return Created(new Uri(Request.RequestUri +"/" + LastBought.Id),LastBought);
         }
 
 
@@ -57,17 +58,20 @@ namespace PoolandPatioCenter.Controllers.Api
 
 
         // DELETE /api/LastBought/1
-        public void DeleteLastBought(int id)
+        [HttpDelete]
+        public IHttpActionResult DeleteLastBought(int id)
         {
             var LastBoughtInDb = _context.LastBought.SingleOrDefault(p => p.Id == id);
 
             if (LastBoughtInDb == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
             _context.LastBought.Remove(LastBoughtInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
 
     }
