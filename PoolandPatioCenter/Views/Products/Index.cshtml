@@ -59,7 +59,7 @@ else
                             @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
                         }
                     </td>
-                    <td><button class="btn btn-danger btn-sm" type="submit">delete</button></td>
+                    <td><button id="@product.Id" onclick="" class="btn btn-danger btn-sm deletebtn" type="submit">delete</button></td>
                 </tr>
             }
         </tbody>
@@ -89,3 +89,35 @@ else
     </table>
 }
 
+@section scripts{
+    <script>
+
+        $(".deletebtn").click(function () {
+            var a = $(this);
+            $.ajax({
+                type: "DELETE",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products/" + a.attr("id"),
+                dataType: 'jsonp',
+                success: function (result) {
+                    alert("Deleted ID:"+ a.attr("id") + "to delete the row please refresh");
+                    var b = a.parent("tr");
+                    b.remove();
+                    
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+
+        })
+
+    </script>
+    
+
+    
+    
+    
+    }
