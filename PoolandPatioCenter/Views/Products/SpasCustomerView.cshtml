@@ -21,6 +21,7 @@ else
                 <th>Price</th>
                 <th>Description</th>
                 <th>Amount In Stock</th>
+                <th>Add To Cart</th>
             </tr>
         </thead>
         <tbody>
@@ -28,21 +29,22 @@ else
             {
                 if (product.CategoriesId == 3)
                 {
-                    <tr>
-                        <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)<button class="btn btn-success btn-sm pull-right" type="submit"><span class="glyphicon glyphicon-shopping-cart"> </span></button></td>
-                        <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
-                        <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
-                        <td>
-                            @if (product.Quantity == 0)
-                            {
-                                <p>OUT OF STOCK</p>
-                            }
-                            else
-                            {
-                                @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
-                            }
-                        </td>
-                    </tr>
+            <tr>
+                <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
+                <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
+                <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
+                <td>
+                    @if (product.Quantity == 0)
+                    {
+                        <p>OUT OF STOCK</p>
+                    }
+                    else
+                    {
+                        @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
+                    }
+                </td>
+                <td><button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-shopping-cart"> </span></button></td>
+            </tr>
                 }
 
             }
