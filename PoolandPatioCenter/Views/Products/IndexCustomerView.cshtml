@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<PoolandPatioCenter.Models.Products>
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,7 +27,11 @@ else
             @foreach (var product in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)<button class="btn btn-success btn-sm pull-right" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span></button></td>
+                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)
+                    <button id="@product.Id" class="btn btn-success btn-sm pull-right cartbtn" type="submit">
+                        <span id="@HttpContext.Current.User.Identity.GetUserId()" class="glyphicon glyphicon-shopping-cart spanbtn"></span>
+                        </button>
+                    </td>
                     <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
                     <td>
@@ -50,3 +55,23 @@ else
     </div>
 }
 
+@section scripts{
+    <script>
+
+        $(".cartbtn").click(function () {
+            var a = $(this);
+           
+            var CartItem = new Object();
+            CartItem.CartItemQuantity = 1;
+            CartItem.ProductId = a.attr("id");
+            CartItem.UserId = $(".spanbtn").attr("id");
+            $.post('https://localhost:44332/api/CartItems', CartItem, function (data) {
+                alert(data)
+            });
+
+
+        });
+
+    </script>
+
+}
