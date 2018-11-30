@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-
+<br/>
 
 @if (!Model.Any())
 {
@@ -59,7 +59,7 @@ else
                             @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
                         }
                     </td>
-                    <td><button class="btn btn-danger btn-sm pull-right" type="submit">delete</button></td>
+                    <td><button class="btn btn-danger btn-sm" type="submit">delete</button></td>
                 </tr>
             }
         </tbody>
