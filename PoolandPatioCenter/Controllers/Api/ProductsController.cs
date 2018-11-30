@@ -1,6 +1,7 @@
 ﻿using PoolandPatioCenter.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -21,7 +22,7 @@ namespace PoolandPatioCenter.Controllers.Api
         // GET /api/Products
         public IEnumerable<Products> GetProducts()
         {
-            return _context.Products.ToList();
+            return _context.Products.Include(p => p.ProductsImage).ToList();
         } 
 
         // POST /api/Products

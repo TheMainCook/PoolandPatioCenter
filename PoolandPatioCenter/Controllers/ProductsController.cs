@@ -46,17 +46,18 @@ namespace PoolandPatioCenter.Controllers
             }
         }
 
-        //public ViewResult New()
-        //{
-        //    var products = _context.Products.ToList();
-
-        //    if (User.IsInRole("CanManageProducts"))
-        //        return View(products);
-        //    else
-        //    {
-        //        return View
-        //    }
-        //}
+        public ActionResult GetProductsImageByProductId(int id)
+        {
+            var products = _context.Products.Include(m => m.ProductsImage).SingleOrDefault(m => m.Id == id);
+            if (products != null && products.ProductsImage != null)
+            {
+                return File(products.ProductsImage.ImageData, products.ProductsImage.ContentType);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
 
         public ActionResult Details(int id)
         {
