@@ -29,9 +29,7 @@ else
             {
                 <tr>
                     <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)
-                    <button id="@product.Id" class="btn btn-success btn-sm pull-right cartbtn" type="submit">
-                        <span id="@HttpContext.Current.User.Identity.GetUserId()" class="glyphicon glyphicon-shopping-cart spanbtn"></span>
-                        </button>
+                    
                     </td>
                     <td>@Ajax.ActionLink(product.Price.ToString(), "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@Html.ActionLink(product.Description, "Details", "Products", new { id = product.Id }, null)</td>
@@ -45,7 +43,9 @@ else
                             @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
                         }
                     </td>
-                    <td><button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span></button></td>
+                    <td><button id="@product.Id" class="btn btn-success btn-sm pull-right cartbtn" type="submit">
+    <span id="@HttpContext.Current.User.Identity.GetUserId()" class="glyphicon glyphicon-shopping-cart spanbtn"></span>
+</button></td>
                 </tr>
             }
         </tbody>
