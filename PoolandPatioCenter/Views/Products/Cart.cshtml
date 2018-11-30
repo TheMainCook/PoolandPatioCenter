@@ -1,0 +1,186 @@
+﻿@model IEnumerable<PoolandPatioCenter.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<div class="dropdown">
+    <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"></span> Categories </a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Pool Chemicals</a></li>
+        <li><a href="#">Grills</a></li>
+        <li><a href="#">Spas</a></li>
+        <li><a href="#">Entertainment</a></li>
+        <li><a href="#">Patio</a></li>
+        <li><a href="#">Furniture</a></li>
+    </ul>
+</div>
+
+<h2>Your Cart</h2>
+
+<p id="a"></p>
+
+@section Scripts {
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+
+            $.ajax({
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products",
+
+                dataType: 'json',
+                success: function (result) {
+                    var a = "";
+                    for (var i = 0; i < result.length; i++) {
+                        a += "Name:" + result[i].name + "        " + result[i].category.categoryName;
+                    }
+                    $("p").html(a);
+                    alert(result[0].name);
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+           
+            $.ajax({
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products",
+                data: `{
+                    "Name": "testwithajax3",
+                    "Price": 100,
+                    "Description": "a test with postman",
+                    "Quantity": 2,
+                    "CategoriesId": 1,
+                    "ProductsImagesId": null,
+                    "ProductsImage": null
+                }`,
+                dataType: 'jsonp',
+                success: function (result) {
+                    
+                    alert("Happy");
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+            $.ajax({
+                type: "PUT",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products/8",
+                data: `{
+                    "Name": "testwithajaxput",
+                    "Price": 100,
+                    "Description": "a test with postman",
+                    "Quantity": 2,
+                    "CategoriesId": 1,
+                    "ProductsImagesId": null,
+                    "ProductsImage": null
+                }`,
+                dataType: 'jsonp',
+                success: function (result) {
+
+                    alert("Happy");
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+            $.ajax({
+                type: "DELETE",
+                contentType: 'application/json; charset=utf-8',
+                url: "https://localhost:44332/api/Products/11",
+                dataType: 'jsonp',
+                success: function (result) {
+
+                    alert("Happy");
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+        });
+
+</script>
+    
+    
+    }
+
+
+
+
+
+
+<!-- ITERATE AS MANY TIMES AS THERE ARE TOTAL ITEMS 
+<div class="product_box">
+    <div id="picture">
+      
+        <img src="Model.ProductsImage" />
+    </div>
+    <div id="name">
+        
+        <h3>Model.Name (Model.Quantity)</h3>
+    </div>
+    <div id="category">
+       
+        <h4>Model.Category</h4>
+    </div>
+    <div id="price">
+        
+        <h4>Model.Price</h4>
+    </div>
+    <div id="addtocart">
+       
+    </div>
+    <div id="description">
+       
+        <p>Model.Description</p>
+    </div>
+</div>
+-->
+<style>
+
+    .product_box {
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr;
+        height: 200px;
+        background-color: lightgrey;
+        grid-template-areas:
+            "picture name price"
+            "picture category addtocart"
+            "picture description description"
+    }
+
+    #picture {
+        grid-area: picture;
+        background-color: red; /* colors are for troubleshooting... remove when published */
+    }
+    #name {
+        grid-area: name;
+        background-color: green;
+    }
+    #price {
+        grid-area: price;
+        background-color: lawngreen;
+    }
+    #category {
+        grid-area: category;
+        background-color: blue;
+    }
+    #addtocart {
+        grid-area: addtocart;
+    }
+    #description {
+        grid-area: description;
+        background-color: orange;
+    }
+
+</style>
