@@ -21,6 +21,7 @@ else
                 <th>Price</th>
                 <th>Description</th>
                 <th>Amount In Stock</th>
+                <th>Add To Cart</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@ else
                             @Ajax.ActionLink(product.Quantity.ToString(), "Details", "Products", new { id = product.Id }, null)
                         }
                     </td>
+                    <td><button class="btn btn-success btn-sm" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span></button></td>
                 </tr>
             }
         </tbody>
