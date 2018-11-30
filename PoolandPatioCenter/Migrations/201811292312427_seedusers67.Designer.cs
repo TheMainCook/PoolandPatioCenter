@@ -7,13 +7,13 @@ namespace PoolandPatioCenter.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class seedusers68 : IMigrationMetadata
+    public sealed partial class seedusers67 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(seedusers68));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(seedusers67));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811292133172_seedusers68"; }
+            get { return "201811292312427_seedusers67"; }
         }
         
         string IMigrationMetadata.Source

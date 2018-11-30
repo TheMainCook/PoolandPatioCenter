@@ -4,13 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("_SearchPartial")
-
-<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span>
-    @Html.ActionLink("Add Product", "ProductsForm", "Products", null, new {@style="color:white; text-decoration:none;"})
-    </button>
-
 <h2>Products</h2>
+
+<div class="row">
+    <div class="col-sm-8">
+        <button class="btn btn-primary" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+            @Html.ActionLink("Add Product", "ProductsForm", "Products", null, new { @style = "color:white; text-decoration:none;" })
+        </button>
+    </div>
+    <div>
+        <div class="col-sm-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-success pull-right" type="submit">Go</button> <!--Cannot get button to append-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @if (!Model.Any())
 {
     <p>We don't have any products yet</p>

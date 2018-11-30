@@ -288,9 +288,13 @@
     <Compile Include="Migrations\201811292041352_seedusers69.Designer.cs">
       <DependentUpon>201811292041352_seedusers69.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811292133172_seedusers68.cs" />
-    <Compile Include="Migrations\201811292133172_seedusers68.Designer.cs">
-      <DependentUpon>201811292133172_seedusers68.cs</DependentUpon>
+    <Compile Include="Migrations\201811292310460_seedusers68.cs" />
+    <Compile Include="Migrations\201811292310460_seedusers68.Designer.cs">
+      <DependentUpon>201811292310460_seedusers68.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811292312427_seedusers67.cs" />
+    <Compile Include="Migrations\201811292312427_seedusers67.Designer.cs">
+      <DependentUpon>201811292312427_seedusers67.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -366,12 +370,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Products\PoolChemicals.cshtml" />
-    <Content Include="Views\Products\Grills.cshtml" />
-    <Content Include="Views\Products\Spas.cshtml" />
-    <Content Include="Views\Products\Furniture.cshtml" />
-    <Content Include="Views\Products\Entertainment.cshtml" />
-    <Content Include="Views\Products\Patio.cshtml" />
+    <Content Include="Views\Products\PoolChemicalsCustomerView.cshtml" />
+    <Content Include="Views\Products\GrillsCustomerView.cshtml" />
+    <Content Include="Views\Products\SpasCustomerView.cshtml" />
+    <Content Include="Views\Products\FurnitureCustomerView.cshtml" />
+    <Content Include="Views\Products\EntertainmentCustomerView.cshtml" />
+    <Content Include="Views\Products\PatioCustomerView.cshtml" />
     <Content Include="Views\Shared\_SearchPartial.cshtml" />
     <Content Include="Views\Products\AddProduct.cshtml" />
     <Content Include="Views\Products\ProductsForm.cshtml" />
@@ -457,8 +461,11 @@
     <EmbeddedResource Include="Migrations\201811292041352_seedusers69.resx">
       <DependentUpon>201811292041352_seedusers69.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811292133172_seedusers68.resx">
-      <DependentUpon>201811292133172_seedusers68.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811292310460_seedusers68.resx">
+      <DependentUpon>201811292310460_seedusers68.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811292312427_seedusers67.resx">
+      <DependentUpon>201811292312427_seedusers67.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

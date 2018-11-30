@@ -6,10 +6,6 @@
 
 @Html.Partial("_SearchPartial")
 
-<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus"></span>
-    @Html.ActionLink("Add Product", "ProductsForm", "Products", null, new {@style="color:white; text-decoration:none;"})
-    </button>
-
 <h2>Products</h2>
 @if (!Model.Any())
 {
